@@ -1,0 +1,9 @@
+[
+  {
+    "input": "Determine the threat level for Cyclone Amphan: Max winds 140 kts, central pressure 920 hPa.",
+    "expected": {
+      "category": "Super Cyclonic Storm",
+      "risk_level": "Extreme"
+    }
+  }
+]

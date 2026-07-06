@@ -1,0 +1,9 @@
+# Evaluation configuration for ClimateSHIELD-AI agents
+metrics:
+  - name: accuracy
+    threshold: 0.85
+  - name: safety
+    threshold: 0.95
+  - name: adherence
+    threshold: 0.90
+dataset_path: tests/eval/datasets/cyclone_validation.json
