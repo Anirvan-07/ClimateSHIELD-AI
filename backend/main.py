@@ -1,8 +1,13 @@
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 
-app = FastAPI(title="ClimateSHIELD-AI API", version="1.0.0")
+from app.modules.cyclone.workflow import CycloneWorkflow
+app = FastAPI(
+    title="ClimateSHIELD-AI API",
+    version="1.0.0"
+)
 
 app.add_middleware(
     CORSMiddleware,
@@ -12,13 +17,37 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+workflow = CycloneWorkflow()
+
+
+class AnalyzeRequest(BaseModel):
+    query: str
+
+
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to the ClimateSHIELD-AI API"}
+    return {
+        "message": "ClimateSHIELD-AI Multi-Agent API"
+    }
+
 
 @app.get("/health")
-def health_check():
-    return {"status": "healthy"}
+def health():
+    return {
+        "status": "healthy"
+    }
+
+
+@app.post("/analyze")
+async def analyze(request: AnalyzeRequest):
+    result = await workflow.run(request.query)
+    return result
+
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run(
+        "main:app",
+        host="0.0.0.0",
+        port=8000,
+        reload=True
+    )

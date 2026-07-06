@@ -1,0 +1,21 @@
+.cyclone-marker {
+    font-size: 34px;
+    animation: spin 1.2s linear infinite;
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.9));
+    transform-origin: center;
+    user-select: none;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.15);
+    }
+
+    to {
+        transform: rotate(360deg) scale(1);
+    }
+}
