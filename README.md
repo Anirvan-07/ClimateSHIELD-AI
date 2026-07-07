@@ -2,6 +2,8 @@
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python) ![React](https://img.shields.io/badge/React-18-61DAFB?logo=react) ![FastAPI](https://img.shields.io/badge/FastAPI-0.100-009688?logo=fastapi) ![Google ADK](https://img.shields.io/badge/Google-ADK-orange) ![Gemini](https://img.shields.io/badge/Gemini-2.5_Flash-4285F4) ![License](https://img.shields.io/badge/License-MIT-green)
 
+![ClimateSHIELD-AI Dashboard](docs/dashboard.png)
+
 > **Multi-Agent Disaster Intelligence Platform built for the Kaggle × Google GenAI Capstone 2026**
 
 ---
