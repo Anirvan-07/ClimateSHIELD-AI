@@ -1,109 +1,322 @@
 # 🌪️ ClimateSHIELD-AI
 
-> A Multi-Agent AI Disaster Intelligence Platform for real-time cyclone monitoring, forecasting, and emergency response.
+![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)![FastAPI](https://img.shields.io/badge/FastAPI-0.100-009688?logo=fastapi)![Google ADK](https://img.shields.io/badge/Google-ADK-orange)![Gemini](https://img.shields.io/badge/Gemini-2.5_Flash-4285F4)![License](https://img.shields.io/badge/License-MIT-green)
 
-ClimateSHIELD-AI is an AI-powered decision support platform built using **Google ADK**, **FastAPI**, **React**, and **Leaflet**. The system combines multiple specialized AI agents to analyze meteorological information, generate consensus forecasts, and provide actionable public safety advisories through an interactive operations dashboard.
-
----
-
-# 🚀 Project Highlights
-
-- 🌍 Interactive cyclone monitoring dashboard
-- 🤖 Multi-Agent AI architecture using Google ADK
-- 🛰️ Weather intelligence pipeline (NOAA / IMD / JTWC / GDACS scaffold)
-- 🗺️ Interactive Leaflet digital map
-- 📈 Forecast timeline visualization
-- ⚡ FastAPI backend
-- ⚛️ React + Vite frontend
-- 🚨 AI-generated emergency advisories
-- 📊 Confidence-based cyclone forecasting
+> **Multi-Agent Disaster Intelligence Platform built for the Kaggle × Google GenAI Capstone 2026**
 
 ---
 
-# 🏗️ Multi-Agent Architecture
+# 📖 Overview
 
-```
-Weather Data Agent
-        │
-        ▼
-Cyclone Detection Agent
-        │
-        ▼
+ClimateSHIELD-AI is an AI-powered disaster intelligence platform that helps emergency responders monitor, analyze, forecast, and respond to tropical cyclones using a collaborative multi-agent architecture.
+
+The platform integrates meteorological observations from multiple weather agencies, processes them through specialized AI agents powered by Google ADK and Gemini 2.5 Flash, and presents actionable insights through an interactive Emergency Operations Dashboard.
+
+---
+
+## 📚 Table of Contents
+
+- 🎯 Problem Statement
+- 💡 Solution
+- 🏗️ System Architecture
+- 📁 Project Structure
+- 🛠️ Technology Stack
+- 🤖 Multi-Agent Workflow
+- 📸 Application Preview
+- 🚀 Installation
+- ✅ Current Features
+- 🛣️ Roadmap
+- 🏆 Kaggle Capstone Alignment
+- 🎥 Demo
+- 👨‍💻 Author
+- 📄 License
+
+---
+
+## ✨ Key Features
+
+- 🌪️ Multi-Agent Cyclone Intelligence Workflow
+- 🤖 Google ADK Agent Orchestration
+- 🛰️ Multi-source Weather Integration (NOAA, IMD, JTWC, GDACS)
+- 🧠 Gemini 2.5 Flash Reasoning
+- 📊 Interactive React Dashboard
+- 🗺️ Live Cyclone Map using Leaflet
+- 📈 Forecast Timeline
+- 🚨 AI-generated Public Advisory
+- ⚡ FastAPI REST Backend
+
+---
+
+# 🎯 Problem Statement
+
+Every year, tropical cyclones cause devastating damage through high winds, storm surges, flooding, and delayed emergency response. Critical information is often scattered across multiple meteorological agencies, making it difficult for responders to quickly assess the situation and make informed decisions.
+
+Emergency teams must manually interpret weather bulletins, compare forecasts, and prepare public advisories under severe time pressure.
+
+ClimateSHIELD-AI addresses this challenge by providing a unified AI-powered disaster intelligence platform that automatically gathers weather observations, analyzes cyclone activity, generates consensus forecasts, and produces actionable emergency advisories in a single dashboard.
+
+---
+
+# 💡 Solution
+
+ClimateSHIELD-AI combines Google's Agent Development Kit (ADK), Gemini 2.5 Flash, FastAPI, and React into a multi-agent system designed specifically for disaster response.
+
+Instead of relying on one large AI model, the platform distributes responsibilities among specialized AI agents:
+
+- Weather Agent → Collects weather observations
+- Cyclone Detector → Identifies cyclone characteristics
+- Forecast Agent → Builds a consensus forecast
+- Emergency Copilot → Generates public safety advisories
+
+The frontend visualizes all outputs in an interactive Emergency Operations Center dashboard featuring:
+
+- Live cyclone tracking
+- Forecast timeline
+- AI-generated advisory
+- Confidence indicators
+- Emergency response information
+
+---
+
+# 🏗️ System Architecture
+
+The platform follows a layered multi-agent architecture where the frontend communicates with a FastAPI backend, which orchestrates specialized AI agents using Google ADK. Each agent performs a dedicated responsibility before producing a unified disaster intelligence response.
+
+![ClimateSHIELD-AI Architecture](docs/architecture.png)
+
+## Workflow
+
+User
+⬇
+React Dashboard
+⬇
+FastAPI Backend
+⬇
+CycloneWorkflow (Google ADK)
+⬇
+Weather Agent
+⬇
+Cyclone Detector
+⬇
 Consensus Forecast Agent
-        │
-        ▼
+⬇
 Emergency Copilot
-        │
-        ▼
+⬇
+Gemini 2.5 Flash
+⬇
+JSON Response
+⬇
 Interactive Dashboard
-```
-
-Each AI agent performs a dedicated task before passing structured information to the next stage of the workflow.
-
----
-
-# 🛠️ Tech Stack
-
-### Frontend
-
-- React
-- Vite
-- Leaflet
-- React Leaflet
-
-### Backend
-
-- FastAPI
-- Python 3.11
-- Google ADK
-- Pydantic
-
-### AI
-
-- Gemini 2.5 Flash
-- Google Agent Development Kit (ADK)
 
 ---
 
 # 📂 Project Structure
 
-```
-ClimateSHIELD-AI/
+The project follows a modular architecture with a clear separation between the React frontend, FastAPI backend, and the AI agent workflow.
 
-├── backend/
-│   ├── app/
-│   ├── modules/
-│   ├── workflow.py
-│   ├── agents.py
-│   └── tools.py
+![Project Structure](docs/project-structure.png)
+
+### Repository Layout
+
+```text
+ClimateSHIELD-AI
 │
-├── frontend/
-│   ├── components/
-│   ├── context/
-│   └── Map/
+├── 📁 backend
+│   │
+│   ├── 📄 main.py
+│   ├── 📄 requirements.txt
+│   ├── 📄 Dockerfile
+│   ├── 📄 .env
+│   │
+│   ├── 📁 app
+│   │   ├── 📁 core
+│   │   │   ├── base_module.py
+│   │   │   ├── base_schema.py
+│   │   │   ├── config.py
+│   │   │   └── consensus.py
+│   │   │
+│   │   └── 📁 modules
+│   │       └── 📁 cyclone
+│   │           ├── __init__.py
+│   │           ├── agents.py
+│   │           ├── workflow.py
+│   │           ├── tools.py
+│   │           └── schemas.py
+│   │
+│   └── 📁 tests
+│       ├── eval
+│       └── unit
 │
-└── README.md
+├── 📁 frontend
+│   │
+│   ├── 📄 package.json
+│   ├── 📄 package-lock.json
+│   ├── 📄 vite.config.js
+│   ├── 📄 index.html
+│   │
+│   └── 📁 src
+│       ├── 📄 App.jsx
+│       ├── 📄 main.jsx
+│       │
+│       ├── 📁 context
+│       │   └── StormContext.jsx
+│       │
+│       ├── 📁 components
+│       │   ├── 📁 Advisory
+│       │   │   └── AdvisoryCard.jsx
+│       │   │
+│       │   ├── 📁 AlertEngine
+│       │   │   └── AlertTicker.jsx
+│       │   │
+│       │   ├── 📁 Insights
+│       │   │   └── QAPanel.jsx
+│       │   │
+│       │   ├── 📁 Map
+│       │   │   ├── MapViewer.jsx
+│       │   │   ├── CycloneMarker.jsx
+│       │   │   └── CycloneMarker.css
+│       │   │
+│       │   ├── 📁 Sidebar
+│       │   │   └── StatsPanel.jsx
+│       │   │
+│       │   ├── 📁 Timeline
+│       │   │   └── TimelineSlider.jsx
+│       │   │
+│       │   └── 📁 Validation
+│       │       └── ConsensusGrid.jsx
+│       │
+│       └── 📁 assets
+│
+├── 📁 docs
+│   ├── dashboard.png
+│   ├── api-request.png
+│   ├── api-response.png
+│   ├── backend-workflow.png
+│   └── architecture.png
+│
+└── 📄 README.md
 ```
 
 ---
 
-# 🚀 Getting Started
+# 🛠️ Technology Stack
 
-## Backend
+| Category | Technology |
+|----------|------------|
+| Frontend | React + Vite |
+| Backend | FastAPI |
+| AI Framework | Google Agent Development Kit (ADK) |
+| LLM | Gemini 2.5 Flash |
+| Language | Python 3.11 |
+| Mapping | Leaflet.js |
+| Weather Sources | NOAA, IMD, JTWC, GDACS |
+| API | REST API |
+| Version Control | Git & GitHub |
+
+---
+
+# 🤖 Multi-Agent Workflow
+
+ClimateSHIELD-AI follows a specialized multi-agent pipeline where each AI agent has a dedicated responsibility.
+
+### 🌦️ Weather Agent
+- Collects weather observations
+- Integrates NOAA, IMD, JTWC and GDACS feeds
+- Creates structured weather context
+
+### 🌪️ Cyclone Detector
+- Identifies cyclone name
+- Detects category
+- Extracts wind speed and pressure
+- Generates structured cyclone analysis
+
+### 📈 Consensus Forecast Agent
+- Compares forecast sources
+- Estimates landfall
+- Computes confidence score
+- Produces forecast timeline
+
+### 🚨 Emergency Copilot
+- Generates public safety advisories
+- Recommends evacuation guidance
+- Provides fisherman warnings
+- Summarizes emergency actions
+
+These agents are orchestrated sequentially using Google ADK through the `CycloneWorkflow` class before returning a unified JSON response to the frontend dashboard.
+
+---
+
+# 📸 Project Showcase
+
+## Dashboard
+
+![Dashboard](docs/dashboard.png)
+
+---
+
+## API Documentation
+
+### Request
+
+![API Request](docs/api-request.png)
+
+### Response
+
+![API Response](docs/api-response.png)
+
+---
+
+## Multi-Agent Workflow Execution
+
+![Workflow](docs/backend-workflow.png)
+
+---
+
+# 🚀 Installation
+
+## 1. Clone the Repository
 
 ```bash
-python -m venv .venv
+git clone https://github.com/Anirvan-07/ClimateSHIELD-AI.git
 
-.venv\Scripts\activate
-
-pip install -r backend/requirements.txt
-
-python backend/main.py
+cd ClimateSHIELD-AI
 ```
 
 ---
 
-## Frontend
+## 2. Backend Setup
+
+```bash
+cd backend
+
+python -m venv .venv
+
+# Windows
+.venv\Scripts\activate
+
+# Linux / macOS
+source .venv/bin/activate
+
+pip install -r requirements.txt
+
+python main.py
+```
+
+Backend runs at:
+
+```
+http://localhost:8000
+```
+
+Swagger API:
+
+```
+http://localhost:8000/docs
+```
+
+---
+
+## 3. Frontend Setup
 
 ```bash
 cd frontend
@@ -113,41 +326,95 @@ npm install
 npm run dev
 ```
 
+Frontend runs at:
+
+```
+http://localhost:3000
+```
 ---
 
-# 🎯 Kaggle Capstone Track
+# ✅ Current Features
 
-**Track:** Agents for Good
+- Interactive cyclone monitoring dashboard
+- Multi-Agent AI workflow
+- Google ADK integration
+- NOAA weather data integration (scaffold)
+- Forecast timeline visualization
+- AI-generated emergency advisory
+- FastAPI REST API
+- React + Leaflet frontend
+- Backend workflow logging
+- Modular architecture for future disaster intelligence modules
 
-ClimateSHIELD-AI focuses on disaster preparedness by assisting emergency responders and citizens with AI-assisted cyclone monitoring and decision support.
+  ---
 
----
+# 🛣️ Roadmap
 
-# 📌 Current Features
+## Phase 1 ✅
+Cyclone Intelligence
 
-- ✅ Multi-Agent workflow
-- ✅ Interactive cyclone dashboard
-- ✅ AI advisory panel
-- ✅ Forecast timeline
-- ✅ FastAPI backend
-- ✅ REST API
-- ✅ Context-based frontend state management
+## Phase 2
+Flood Intelligence
 
----
+## Phase 3
+Heatwave Intelligence
 
-# 🔮 Future Roadmap
+## Phase 4
+Wildfire Intelligence
+
+## Phase 5
+Earthquake Intelligence
+
+## Phase 6
+Unified Climate Risk Platform
+
+### Planned Enhancements
 
 - Live NOAA integration
-- Live IMD integration
+- Live IMD bulletins
 - JTWC forecast ingestion
-- GDACS alert integration
-- Native Google ADK Runner orchestration
+- GDACS disaster alerts
+- Native Google ADK Runner
+- Sequential Agent orchestration
 - Persistent memory
-- Flood Intelligence Module
-- Heatwave Intelligence Module
-- Wildfire Intelligence Module
-- Earthquake Intelligence Module
-- Unified Climate Risk Platform
+- Risk heatmaps
+- District-level impact prediction
+
+---
+
+# 🏆 Kaggle × Google GenAI Capstone Alignment
+
+### Track
+
+**Agents for Good**
+
+ClimateSHIELD-AI addresses disaster preparedness and emergency response by applying multi-agent AI systems to cyclone monitoring and public safety.
+
+### Core Concepts Demonstrated
+
+- Multi-Agent Systems
+- Google Agent Development Kit (ADK)
+- Tool Integration
+- Context Engineering
+- FastAPI REST Services
+- Modular AI Workflow
+- Interactive Visualization
+
+---
+
+# 🙏 Acknowledgements
+
+This project was developed as part of the **Kaggle × Google 5-Day AI Agents Intensive Capstone**.
+
+Special thanks to:
+
+- Google AI
+- Kaggle
+- Google Agent Development Kit (ADK) Team
+- NOAA
+- India Meteorological Department (IMD)
+- Joint Typhoon Warning Center (JTWC)
+- Global Disaster Alert and Coordination System (GDACS)
 
 ---
 
@@ -155,10 +422,9 @@ ClimateSHIELD-AI focuses on disaster preparedness by assisting emergency respond
 
 **Anirvan Mohapatra**
 
-B.Tech CSE (AI & ML)
+B.Tech Computer Science & Engineering (AI & ML)
 
 Sri Sri University
 
----
-
-## ⭐ If you found this project interesting, consider giving it a star!
+GitHub:
+https://github.com/Anirvan-07
